@@ -2645,7 +2645,7 @@ namespace xsimd
             XSIMD_INLINE bool shifts_all_positive(batch<T, A> const& b) noexcept
             {
                 std::array<T, batch<T, A>::size> tmp = {};
-                b.store_unaligned(tmp.begin());
+                b.store_unaligned(tmp.data());
                 return std::all_of(tmp.begin(), tmp.end(), [](T x)
                                    { return x >= 0; });
             }
